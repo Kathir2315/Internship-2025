@@ -1,0 +1,28 @@
+{
+"question":[
+  {
+    "question": "what is your name?",
+    "answer": "My name is chatbot."
+  },
+  {
+    "question": "what is your work?",
+    "answer": "I can answer your question with using my predefind data."
+  },
+  {
+    "question": "what is github ",
+    "answer": "GitHub is a platform for version control and collaboration that lets you host and review code."
+  },
+  {
+    "question": "what is JavaScript?",
+    "answer": "JavaScript is a programming language used primarily for web development."
+  },
+  {
+    "question": "what is JSON?",
+    "answer": "JSON stands for JavaScript Object Notation, a lightweight data-interchange format."
+  },
+  {
+    "question": "what is GitHub?",
+    "answer": "GitHub is a platform for version control and collaboration that lets you host and review code."
+  }
+]
+}
