@@ -1,14 +1,14 @@
 [
   {
-    "question": "what is your name",
+    "question": "what is your name?",
     "answer": "My name is chatbot."
   },
   {
-    "question": "what is your work",
+    "question": "what is your work?",
     "answer": "I can answer your question with using my predefind data."
   },
   {
-    "question": "what is github ",
+    "question": "what is github? ",
     "answer": "GitHub is a platform for version control and collaboration that lets you host and review code."
   },
   {

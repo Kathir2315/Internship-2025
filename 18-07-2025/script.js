@@ -43,5 +43,5 @@
         }
       }
 
-      return "Sorry, the question is not available.";
+      return "Sorry, the question is not available. asking only-1.what is your name? 2.what is your work?    3.what is github?   4.what is JavaScript?   5.what is JSON?  6.what is GitHub?";
     }
