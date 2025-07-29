@@ -7,54 +7,55 @@ export default function NoteEditor({ note, setNotes, notes, setActiveNoteId }) {
     if (note) setTempContent(note.content);
   }, [note]);
 
-  const saveContent = () => {
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (note && tempContent !== note.content) {
+        const updatedNotes = notes.map(n =>
+          n.id === note.id ? { ...n, content: tempContent } : n
+        );
+        setNotes(updatedNotes);
+      }
+    },200);
+
+    return () => clearTimeout(timeoutId);
+  }, [tempContent, note, notes, setNotes]);
+
+  const handleDone = () => {
+    if (!note) return;
+
     const updatedNotes = notes.map(n =>
       n.id === note.id ? { ...n, content: tempContent } : n
     );
     setNotes(updatedNotes);
-  };
-
-  const deleteNote = () => {
-    const filtered = notes.filter(n => n.id !== note.id);
-    setNotes(filtered);
     setActiveNoteId(null);
+    alert("✅ File saved!");
   };
 
   if (!note) {
     return (
-      <div className="w-5/5 h-5/5 flex items-center justify-center bg-black text-gray-400 text-lg">
-        Create a note... 
+      <div className="w-full h-full flex items-center justify-center bg-black text-gray-500 text-lg">
+        Create a note...
       </div>
     );
   }
 
   return (
-    <div className="flex-1 bg-gradient-to-br from-blue-500 to-purple-600 text-white flex flex-col">
-      
-
-      <div className="flex justify-end items-center p-2 border-b gap-2">
+    <div className="flex-1 bg-black text-white flex flex-col h-full">
+      <div className="bg-blue-500 h-15 text-black px-4 py-2 shadow-md flex justify-end items-center">
         <button
-          onClick={saveContent}
-          className="bg-teal-500 text-white px-4 py-1 rounded hover:bg-teal-600 active:scale-95 transition-all duration-200"
+          onClick={handleDone}
+          className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 transition-all text-sm"
         >
-          SAVE
-        </button>
-        <button
-          onClick={deleteNote}
-          className="text-red-500 text-xl hover:text-red-600 active:scale-95 transition-all duration-200"
-        >
-          🗑️
+          Done
         </button>
       </div>
 
-      
-     <textarea
-  className="flex-1 p-6 bg-black text-white text-xl font-semibold outline-none resize-none placeholder-gray-400 leading-relaxed"
-  placeholder=" Typing here..."
-  value={tempContent}
-  onChange={(e) => setTempContent(e.target.value)}
-/>
-
+      <textarea
+        className="flex-1 w-full p-6 bg-black text-white text-xl font-mono font-semibold outline-none resize-none placeholder-gray-500 leading-relaxed"
+        placeholder="Start typing..."
+        value={tempContent}
+        onChange={(e) => setTempContent(e.target.value)}
+      />
     </div>
   );
 }
