@@ -8,9 +8,8 @@ export default function Progress() {
   ];
 
   return (
-    <div id="skills" data-aos="zoom-out-right" className="min-h-screen flex flex-col justify-center items-center bg-gray-100 px-4 py-10">
-      <h2 className="text-3xl font-bold text-purple-700 mb-8">My Skills</h2>
-
+    <section id="skills" data-aos="zoom-out-right" className="min-h-screen flex flex-col justify-center items-center bg-gray-100 px-4 py-16">
+      <h2 className="text-3xl font-bold text-purple-700 mb-10">My Skills</h2>
       <div className="w-full max-w-xl space-y-6">
         {skills.map((skill, index) => (
           <div key={index}>
@@ -27,6 +26,6 @@ export default function Progress() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
