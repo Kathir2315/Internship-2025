@@ -3,7 +3,8 @@ import React, { useState } from "react";
 export default function Sidebar({ notes, activeNoteId, setActiveNoteId, setNotes, showSidebar, toggleSidebar }) {
   const [editNoteId, setEditNoteId] = useState(null);
   const [tempTitle, setTempTitle] = useState("");
-
+  
+  // notecreate
   const addNote = () => {
     const noteCount = notes.filter(note => note.title.startsWith("Note")).length;
     const newNote = {
@@ -16,17 +17,20 @@ export default function Sidebar({ notes, activeNoteId, setActiveNoteId, setNotes
     if (showSidebar) toggleSidebar();
   };
 
+  //noteNameEdit
+
   const handleRename = (id, title) => {
     setEditNoteId(id);
     setTempTitle(title);
   };
 
+  //saveName
   const saveRename = (id) => {
     const updated = notes.map(note =>
       note.id === id ? { ...note, title: tempTitle } : note
     );
     setNotes(updated);
-    setEditNoteId(null);
+    setEditNoteId(null); 
   };
 
   const deleteNote = (id) => {
